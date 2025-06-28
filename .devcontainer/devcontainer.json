@@ -1,8 +1,19 @@
 {
   "name": "Kali Rolling Codespace",
-  "build": { "dockerfile": "Dockerfile", "context": "." },
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  // Grant raw-socket capability and disable no-new-privileges
+  "runArgs": [
+    "--cap-add=NET_RAW",
+    "--security-opt=no-new-privileges:false"
+  ],
+  // Expose your SSH port if you want to connect remotely
   "forwardPorts": [22],
+  // Run an update after the container is created
   "postCreateCommand": "sudo apt-get update",
+  // Log in as root so you don’t need sudo for privileged binaries
   "remoteUser": "root",
   "customizations": {
     "vscode": {
