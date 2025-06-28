@@ -6,7 +6,7 @@
   },
   "forwardPorts": [22],
   "postCreateCommand": "sudo apt-get update",
-  "remoteUser": "dev",
+  "remoteUser": "root",
   "customizations": {
     "vscode": {
       "extensions": [
