@@ -1,9 +1,6 @@
 {
   "name": "Kali Rolling Codespace",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "."
-  },
+  "build": { "dockerfile": "Dockerfile", "context": "." },
   "forwardPorts": [22],
   "postCreateCommand": "sudo apt-get update",
   "remoteUser": "root",
