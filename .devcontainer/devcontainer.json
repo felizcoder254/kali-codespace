@@ -4,16 +4,16 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
-  // Grant raw-socket capability and disable no-new-privileges
+  // Grant raw‐socket capability and explicitly turn off no‐new‐privileges
   "runArgs": [
     "--cap-add=NET_RAW",
-    "--security-opt=no-new-privileges:false"
+    "--security-opt=no-new-privileges=false"
   ],
-  // Expose your SSH port if you want to connect remotely
+  // Forward SSH if you ever need it
   "forwardPorts": [22],
-  // Run an update after the container is created
-  "postCreateCommand": "sudo apt-get update",
-  // Log in as root so you don’t need sudo for privileged binaries
+  // Update once on first start
+  "postCreateCommand": "apt-get update",
+  // Drop you directly into root
   "remoteUser": "root",
   "customizations": {
     "vscode": {
